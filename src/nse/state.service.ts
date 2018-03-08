@@ -5,11 +5,6 @@ import {throttle} from 'lodash/function';
 
 import {AppState} from '../model';
 import {initialState} from '../initial-state';
-/*
-import {ReduxCheckboxesComponent} from './redux-checkboxes.component';
-import {ReduxInputComponent} from './redux-input.component';
-import {ReduxRadioButtonsComponent} from './redux-radio-buttons.component';
-*/
 
 export const FILTER = '@@filter';
 export const PATH_DELIMITER = '.';

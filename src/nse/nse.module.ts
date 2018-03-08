@@ -1,3 +1,5 @@
+// NSE stands for "ngrx/store Easy"
+
 import {NgModule} from '@angular/core';
 // Need this to use ngModel.
 import {FormsModule} from '@angular/forms';
