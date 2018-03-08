@@ -1,18 +1,12 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  NgModule,
-  OnInit,
-  Output
-} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
-import {addReducer, StateService} from './state.service';
+import {StateService} from './state.service';
 
 @Component({
   selector: 'redux-input',
   template: `
     <input
+      [checked]="checked"
       [type]="type"
       [(ngModel)]="value"
       (keypress)="onKeyPress($event)"
@@ -25,13 +19,18 @@ export class ReduxInputComponent implements OnInit {
   @Input() autofocus: boolean;
   @Input() path: string;
   @Input() type = 'text';
+
+  @Output() checked = false;
   @Output() enter = new EventEmitter();
-  value = '';
+  @Output() value = '';
 
   constructor(private stateSvc: StateService) {}
 
   ngOnInit() {
     this.stateSvc.watch(this, {value: this.path});
+    if (this.type === 'checkbox') {
+      this.checked = Boolean(this.value);
+    }
   }
 
   onChange(event) {
@@ -41,6 +40,7 @@ export class ReduxInputComponent implements OnInit {
     let v = value;
     if (type === 'checkbox') {
       v = checked;
+      this.checked = checked;
     } else if (type === 'number' || type === 'range') {
       if (value.length) v = Number(value);
     }

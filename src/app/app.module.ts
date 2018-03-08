@@ -1,52 +1,45 @@
-import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {ActionReducerMap, StoreModule} from '@ngrx/store';
-import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
-import {AppState} from './app.model';
 import {environment} from '../environments/environment';
 import {HelloDisplayComponent} from './hello-display/hello-display.component';
 import {PersonFormComponent} from './person-form/person-form.component';
-import {initialState} from './initial-state';
+
+import {getDeclarations, getImports, StateService} from './state.service';
+
 import {ReduxCheckboxesComponent} from './redux-checkboxes.component';
 import {ReduxInputComponent} from './redux-input.component';
 import {ReduxRadioButtonsComponent} from './redux-radio-buttons.component';
-import {reducer} from './state.service';
-import {StateService} from './state.service';
-
-// This is just used to make TypeScript happy.
-// TODO: Can this be avoided somehow?
-const reducerMap: ActionReducerMap<AppState> = {
-  newColor: null,
-  person: null
-};
-
-// This allows us to use one reducer function
-// for all actions.
-const metaReducers = [() => reducer];
+import {ReduxSelectComponent} from './redux-select.component';
+import {ReduxTextAreaComponent} from './redux-textarea.component';
+/*
+import {
+  getDeclarations,
+  getImports,
+  ReduxCheckboxesComponent,
+  ReduxInputComponent,
+  ReduxTextAreaComponent,
+  ReduxRadioButtonsComponent,
+  ReduxSelectComponent,
+  StateService
+} from 'ngrx-store-easy';
+*/
 
 @NgModule({
   declarations: [
     AppComponent,
     PersonFormComponent,
     HelloDisplayComponent,
+    ...getDeclarations(),
     ReduxCheckboxesComponent,
     ReduxInputComponent,
-    ReduxRadioButtonsComponent
+    ReduxRadioButtonsComponent,
+    ReduxSelectComponent,
+    ReduxTextAreaComponent
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    StoreModule.forRoot(
-      reducerMap,
-      {initialState, metaReducers}),
-    StoreDevtoolsModule.instrument({
-      logOnly: environment.production,
-      maxAge: 25 // # of states to retain
-    })
-  ],
+  imports: [BrowserModule, FormsModule, ...getImports(environment)],
   providers: [StateService],
   bootstrap: [AppComponent]
 })

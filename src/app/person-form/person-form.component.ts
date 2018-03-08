@@ -57,6 +57,6 @@ export class PersonFormComponent {
   }
 
   pickIdle() {
-    this.stateSvc.dispatchSet('person.direction', "2");
+    this.stateSvc.dispatchSet('person.direction', '2');
   }
 }

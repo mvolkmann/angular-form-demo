@@ -5,7 +5,8 @@ export const initialState: AppState = {
   person: {
     age: 0,
     colors: [],
-    direction: "1",
+    comments: '',
+    direction: '1',
     employed: false,
     evening: false,
     morning: true,

@@ -14,6 +14,11 @@
   </div>
 
   <div class="line">
+    <label>Comments</label>
+    <redux-textarea path="person.comments"></redux-textarea>
+  </div>
+
+  <div class="line">
     <label></label>
     <redux-input path="person.employed" type="checkbox"></redux-input>
     <span>Employed</span>
@@ -23,6 +28,15 @@
     <label>Direction</label>
     <redux-radio-buttons path="person.direction" [list]="directionList">
     </redux-radio-buttons>
+  </div>
+  <div>
+    <button (click)="pickIdle()">Pick Idle</button>
+  </div>
+
+  <div class="line">
+    <label>Direction 2</label>
+    <redux-select path="person.direction" [list]="directionList">
+    </redux-select>
   </div>
   <div>
     <button (click)="pickIdle()">Pick Idle</button>

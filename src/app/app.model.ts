@@ -5,14 +5,15 @@ export interface ActionWithPayload extends Action {
 }
 
 export interface AppState {
-  newColor: string,
+  newColor: string;
   person: {
-    age: number,
-    colors: string[],
-    direction: string,
-    employed: boolean,
-    evening: boolean,
-    morning: boolean,
-    name: string
-  }
+    age: number;
+    colors: string[];
+    comments: string,
+    direction: string;
+    employed: boolean;
+    evening: boolean;
+    morning: boolean;
+    name: string;
+  };
 }
