@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 
-import {StateService} from '../state.service';
+import {StateService} from '../../nse/state.service';
 
 @Component({
   selector: 'app-hello-display',

@@ -1,4 +1,4 @@
-import {AppState} from './app.model';
+import {AppState} from './model';
 
 export const initialState: AppState = {
   newColor: '',

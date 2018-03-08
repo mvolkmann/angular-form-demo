@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 
-import {AppState} from '../app.model';
-import {addReducer, StateService} from '../state.service';
-import {TextPath} from '../redux-checkboxes.component';
-import {TextValue} from '../redux-radio-buttons.component';
+import {AppState} from '../../model';
+import {addReducer, StateService} from '../../nse/state.service';
+import {TextPath} from '../../nse/checkboxes.component';
+import {TextValue} from '../../nse/radio-buttons.component';
 
 addReducer('shout', (state: AppState) => {
   const {person} = state;

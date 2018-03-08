@@ -14,9 +14,9 @@ export interface TextValue {
  * Specify a `className` prop to enable styling the radio buttons.
  */
 @Component({
-  selector: 'redux-radio-buttons',
+  selector: 'nse-radio-buttons',
   template: `
-    <div className="{{'redux-radio-buttons ' + className}}">
+    <div className="{{'nse-radio-buttons ' + className}}">
       <div *ngFor="let obj of list; let i = index" class="item">
         <input
           [checked]="obj.value == value"
@@ -31,7 +31,7 @@ export interface TextValue {
     </div>
   `
 })
-export class ReduxRadioButtonsComponent implements OnInit {
+export class RadioButtonsComponent implements OnInit {
   @Input() className = '';
   @Input() list: TextValue[];
   @Input() path = '';

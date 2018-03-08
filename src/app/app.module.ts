@@ -7,40 +7,15 @@ import {environment} from '../environments/environment';
 import {HelloDisplayComponent} from './hello-display/hello-display.component';
 import {PersonFormComponent} from './person-form/person-form.component';
 
-import {getDeclarations, getImports, StateService} from './state.service';
-
-import {ReduxCheckboxesComponent} from './redux-checkboxes.component';
-import {ReduxInputComponent} from './redux-input.component';
-import {ReduxRadioButtonsComponent} from './redux-radio-buttons.component';
-import {ReduxSelectComponent} from './redux-select.component';
-import {ReduxTextAreaComponent} from './redux-textarea.component';
-/*
-import {
-  getDeclarations,
-  getImports,
-  ReduxCheckboxesComponent,
-  ReduxInputComponent,
-  ReduxTextAreaComponent,
-  ReduxRadioButtonsComponent,
-  ReduxSelectComponent,
-  StateService
-} from 'ngrx-store-easy';
-*/
+import {NseModule} from '../nse/nse.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     PersonFormComponent,
     HelloDisplayComponent,
-    ...getDeclarations(),
-    ReduxCheckboxesComponent,
-    ReduxInputComponent,
-    ReduxRadioButtonsComponent,
-    ReduxSelectComponent,
-    ReduxTextAreaComponent
   ],
-  imports: [BrowserModule, FormsModule, ...getImports(environment)],
-  providers: [StateService],
+  imports: [BrowserModule, FormsModule, NseModule],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

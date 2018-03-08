@@ -2,17 +2,30 @@ import {Component, Input, OnInit, Output} from '@angular/core';
 
 import {StateService} from './state.service';
 
+export interface TextValue {
+  text: string;
+  value: string | number;
+}
+
 @Component({
-  selector: 'redux-textarea',
+  selector: 'nse-select',
   template: `
-    <textarea
+    <select
+      class="nse-select"
       [(ngModel)]="value"
       (change)="onChange($event)"
-      (keyup)="onChange($event)"
-    ></textarea>
+    >
+      <option
+        *ngFor="let obj of list; let i = index"
+        [value]="obj.value"
+      >
+        {{obj.text}}
+      </option>
+    </select>
   `
 })
-export class ReduxTextAreaComponent implements OnInit {
+export class SelectComponent implements OnInit {
+  @Input() list: TextValue[];
   @Input() path: string;
   @Output() value = '';
 

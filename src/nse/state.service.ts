@@ -3,8 +3,8 @@ import {ActionReducerMap, State, Store, StoreModule, select} from '@ngrx/store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {throttle} from 'lodash/function';
 
-import {AppState} from './app.model';
-import {initialState} from './initial-state';
+import {AppState} from '../model';
+import {initialState} from '../initial-state';
 /*
 import {ReduxCheckboxesComponent} from './redux-checkboxes.component';
 import {ReduxInputComponent} from './redux-input.component';

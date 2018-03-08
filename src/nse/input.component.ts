@@ -3,19 +3,20 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {StateService} from './state.service';
 
 @Component({
-  selector: 'redux-input',
+  selector: 'nse-input',
   template: `
     <input
+      class="nse-input"
       [checked]="checked"
       [type]="type"
       [(ngModel)]="value"
+      (change)="onChange($event)"
       (keypress)="onKeyPress($event)"
       (keyup)="onChange($event)"
-      (change)="onChange($event)"
     >
   `
 })
-export class ReduxInputComponent implements OnInit {
+export class InputComponent implements OnInit {
   @Input() autofocus: boolean;
   @Input() path: string;
   @Input() type = 'text';
